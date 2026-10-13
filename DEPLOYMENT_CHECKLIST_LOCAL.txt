@@ -1,0 +1,1 @@
+STAGING ONLY. Before public release: verify 11 Amazon links, remove preview notices only after verification, verify privacy and legal details, replace robots.txt with appropriate public version, check live network and links. Existing christmas-elf-website repo must not be modified.
