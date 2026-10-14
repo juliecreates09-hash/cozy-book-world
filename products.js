@@ -1,1 +1,139 @@
-const PRODUCTS = [{"language": "DE", "group": "Weihnachtswichtel", "asin": "B0HLG4PM5J", "title": "Die lustigen Abenteuer des Weihnachtselfs", "source_pdf": "AGE-B_Buch01_DE_KDP_Cover_V23_52S(8).pdf", "cover": "covers/B0HLG4PM5J.webp", "url": "https://www.amazon.de/dp/B0HLG4PM5J", "status": "KDP screenshot LIVE; original cover candidate matched by visual/title; Amazon URL untested"}, {"language": "EN", "group": "Weihnachtswichtel", "asin": "B0HLFYFL1K", "title": "The Little Christmas Elf", "source_pdf": "AGE-B_Book01_EN_KDP_Cover_300dpi_UPSCALED(8).pdf", "cover": "covers/B0HLFYFL1K.webp", "url": "https://www.amazon.com/dp/B0HLFYFL1K", "status": "KDP screenshot LIVE; original cover candidate matched by visual/title; Amazon URL untested"}, {"language": "ES", "group": "Weihnachtswichtel", "asin": "B0HM25WPX5", "title": "Las divertidas aventuras del elfo de Navidad", "source_pdf": "AGE-B_Buch01_ES_KDP_Cover_52S(8).pdf", "cover": "covers/B0HM25WPX5.webp", "url": "https://www.amazon.es/dp/B0HM25WPX5", "status": "KDP screenshot LIVE; original cover candidate matched by visual/title; Amazon URL untested"}, {"language": "ES", "group": "Weihnachtswichtel", "asin": "B0HM2CPQ4X", "title": "Las alegres aventuras del elfo de Navidad", "source_pdf": "AGE-B_Book02_ES_KDP_Cover_52S_Rueckseitentext_korrigiert(2).pdf", "cover": "covers/B0HM2CPQ4X.webp", "url": "https://www.amazon.es/dp/B0HM2CPQ4X", "status": "KDP screenshot LIVE; original cover candidate matched by visual/title; Amazon URL untested"}, {"language": "DE", "group": "Tiere Afrikas", "asin": "B0HKGPBZ8B", "title": "Tiere in Afrika", "source_pdf": "AFRICA_AGE_A_DE_KDP_COVER_UPLOAD(1).pdf", "cover": "covers/B0HKGPBZ8B.webp", "url": "https://www.amazon.de/dp/B0HKGPBZ8B", "status": "KDP screenshot LIVE; original cover candidate matched by visual/title; Amazon URL untested"}, {"language": "EN", "group": "Tiere Afrikas", "asin": "B0HKGM9WST", "title": "Animals of Africa", "source_pdf": "AFRICA_AGE_A_EN_KDP_COVER_UPLOAD(2).pdf", "cover": "covers/B0HKGM9WST.webp", "url": "https://www.amazon.com/dp/B0HKGM9WST", "status": "KDP screenshot LIVE; original cover candidate matched by visual/title; Amazon URL untested"}, {"language": "ES", "group": "Tiere Afrikas", "asin": "B0HKJZRFHX", "title": "Animales de África", "source_pdf": "AFRICA_AGE_A_ES_KDP_COVER_UPLOAD(1).pdf", "cover": "covers/B0HKJZRFHX.webp", "url": "https://www.amazon.es/dp/B0HKJZRFHX", "status": "KDP screenshot LIVE; original cover candidate matched by visual/title; Amazon URL untested"}, {"language": "DE", "group": "Baustellenfahrzeuge", "asin": "B0HJX2HK6D", "title": "Baustellenfahrzeuge: Malbuch für Kinder ab 3 Jahren", "source_pdf": "KDP_Cover_Baustellenfahrzeuge_8.5x11_74Seiten_FINAL(3).pdf", "cover": "covers/B0HJX2HK6D.webp", "url": "https://www.amazon.de/dp/B0HJX2HK6D", "status": "KDP screenshot LIVE; original cover candidate matched by visual/title; Amazon URL untested"}, {"language": "ES", "group": "Baustellenfahrzeuge", "asin": "B0HMKKBC9B", "title": "Vehículos de Construcción", "source_pdf": "Vehiculos_de_Construccion_Cover_ES_8.5x11_74pp_NO_BARCODE_FINAL(3).pdf", "cover": "covers/B0HMKKBC9B.webp", "url": "https://www.amazon.es/dp/B0HMKKBC9B", "status": "KDP screenshot LIVE; original cover candidate matched by visual/title; Amazon URL untested"}, {"language": "DE", "group": "Baustellenfahrzeuge", "asin": "B0HKGY1N7C", "title": "Mein erstes Malbuch – Große Baustellenfahrzeuge", "source_pdf": "Mein_erstes_Malbuch_Grosse_Baustellenfahrzeuge_Cover_40pp_FINAL_PRODUCTION_v3 (1).pdf", "cover": "covers/B0HKGY1N7C.webp", "url": "https://www.amazon.de/dp/B0HKGY1N7C", "status": "KDP screenshot LIVE; original cover candidate matched by visual/title; Amazon URL untested"}, {"language": "EN", "group": "Baustellenfahrzeuge", "asin": "B0HKGX7K4D", "title": "My First Coloring Book: Big & Easy Construction Vehicles", "source_pdf": "My_First_Coloring_Book_Big_and_Easy_Construction_Vehicles_Cover_EN_40pp_FINAL_PRODUCTION(1).pdf", "cover": "covers/B0HKGX7K4D.webp", "url": "https://www.amazon.com/dp/B0HKGX7K4D", "status": "KDP screenshot LIVE; original cover candidate matched by visual/title; Amazon URL untested"}];
+const PRODUCTS = [
+  {
+    "language": "DE",
+    "group": "Weihnachtswichtel",
+    "asin": "B0HLG4PM5J",
+    "title": "Die lustigen Abenteuer des Weihnachtselfs",
+    "source_pdf": "AGE-B_Buch01_DE_KDP_Cover_V23_52S(8).pdf",
+    "cover": "covers/B0HLG4PM5J.webp",
+    "url": "https://www.amazon.de/dp/B0HLG4PM5J",
+    "status": "KDP screenshot LIVE; original cover candidate matched by visual/title; Amazon URL untested"
+  },
+  {
+    "language": "EN",
+    "group": "Weihnachtswichtel",
+    "asin": "B0HLFYFL1K",
+    "title": "The Little Christmas Elf",
+    "source_pdf": "AGE-B_Book01_EN_KDP_Cover_300dpi_UPSCALED(8).pdf",
+    "cover": "covers/B0HLFYFL1K.webp",
+    "url": "https://www.amazon.com/dp/B0HLFYFL1K",
+    "status": "KDP screenshot LIVE; original cover candidate matched by visual/title; Amazon URL untested"
+  },
+  {
+    "language": "ES",
+    "group": "Weihnachtswichtel",
+    "asin": "B0HM25WPX5",
+    "title": "Las divertidas aventuras del elfo de Navidad",
+    "source_pdf": "AGE-B_Buch01_ES_KDP_Cover_52S(8).pdf",
+    "cover": "covers/B0HM25WPX5.webp",
+    "url": "https://www.amazon.es/dp/B0HM25WPX5",
+    "status": "KDP screenshot LIVE; original cover candidate matched by visual/title; Amazon URL untested"
+  },
+  {
+    "language": "ES",
+    "group": "Weihnachtswichtel",
+    "asin": "B0HM2CPQ4X",
+    "title": "Las alegres aventuras del elfo de Navidad",
+    "source_pdf": "AGE-B_Book02_ES_KDP_Cover_52S_Rueckseitentext_korrigiert(2).pdf",
+    "cover": "covers/B0HM2CPQ4X.webp",
+    "url": "https://www.amazon.es/dp/B0HM2CPQ4X",
+    "status": "KDP screenshot LIVE; original cover candidate matched by visual/title; Amazon URL untested"
+  },
+  {
+    "language": "DE",
+    "group": "Tiere Afrikas",
+    "asin": "B0HKGPBZ8B",
+    "title": "Tiere in Afrika",
+    "source_pdf": "AFRICA_AGE_A_DE_KDP_COVER_UPLOAD(1).pdf",
+    "cover": "covers/B0HKGPBZ8B.webp",
+    "url": "https://www.amazon.de/dp/B0HKGPBZ8B",
+    "status": "KDP screenshot LIVE; original cover candidate matched by visual/title; Amazon URL untested"
+  },
+  {
+    "language": "EN",
+    "group": "Tiere Afrikas",
+    "asin": "B0HKGM9WST",
+    "title": "Animals of Africa",
+    "source_pdf": "AFRICA_AGE_A_EN_KDP_COVER_UPLOAD(2).pdf",
+    "cover": "covers/B0HKGM9WST.webp",
+    "url": "https://www.amazon.com/dp/B0HKGM9WST",
+    "status": "KDP screenshot LIVE; original cover candidate matched by visual/title; Amazon URL untested"
+  },
+  {
+    "language": "ES",
+    "group": "Tiere Afrikas",
+    "asin": "B0HKJZRFHX",
+    "title": "Animales de África",
+    "source_pdf": "AFRICA_AGE_A_ES_KDP_COVER_UPLOAD(1).pdf",
+    "cover": "covers/B0HKJZRFHX.webp",
+    "url": "https://www.amazon.es/dp/B0HKJZRFHX",
+    "status": "KDP screenshot LIVE; original cover candidate matched by visual/title; Amazon URL untested"
+  },
+  {
+    "language": "DE",
+    "group": "Baustellenfahrzeuge",
+    "asin": "B0HJX2HK6D",
+    "title": "Baustellenfahrzeuge: Malbuch für Kinder ab 3 Jahren",
+    "source_pdf": "KDP_Cover_Baustellenfahrzeuge_8.5x11_74Seiten_FINAL(3).pdf",
+    "cover": "covers/B0HJX2HK6D.webp",
+    "url": "https://www.amazon.de/dp/B0HJX2HK6D",
+    "status": "KDP screenshot LIVE; original cover candidate matched by visual/title; Amazon URL untested"
+  },
+  {
+    "language": "ES",
+    "group": "Baustellenfahrzeuge",
+    "asin": "B0HMKKBC9B",
+    "title": "Vehículos de Construcción",
+    "source_pdf": "Vehiculos_de_Construccion_Cover_ES_8.5x11_74pp_NO_BARCODE_FINAL(3).pdf",
+    "cover": "covers/B0HMKKBC9B.webp",
+    "url": "https://www.amazon.es/dp/B0HMKKBC9B",
+    "status": "KDP screenshot LIVE; original cover candidate matched by visual/title; Amazon URL untested"
+  },
+  {
+    "language": "DE",
+    "group": "Baustellenfahrzeuge",
+    "asin": "B0HKGY1N7C",
+    "title": "Mein erstes Malbuch – Große Baustellenfahrzeuge",
+    "source_pdf": "Mein_erstes_Malbuch_Grosse_Baustellenfahrzeuge_Cover_40pp_FINAL_PRODUCTION_v3 (1).pdf",
+    "cover": "covers/B0HKGY1N7C.webp",
+    "url": "https://www.amazon.de/dp/B0HKGY1N7C",
+    "status": "KDP screenshot LIVE; original cover candidate matched by visual/title; Amazon URL untested"
+  },
+  {
+    "language": "EN",
+    "group": "Baustellenfahrzeuge",
+    "asin": "B0HKGX7K4D",
+    "title": "My First Coloring Book: Big & Easy Construction Vehicles",
+    "source_pdf": "My_First_Coloring_Book_Big_and_Easy_Construction_Vehicles_Cover_EN_40pp_FINAL_PRODUCTION(1).pdf",
+    "cover": "covers/B0HKGX7K4D.webp",
+    "url": "https://www.amazon.com/dp/B0HKGX7K4D",
+    "status": "KDP screenshot LIVE; original cover candidate matched by visual/title; Amazon URL untested"
+  },
+  {
+    "language": "DE",
+    "group": "Weihnachtswichtel",
+    "asin": "B0HMYF4WJH",
+    "title": "Die fröhlichen Abenteuer des Weihnachtswichtels: 24 neue Weihnachtsgeschichten zum Vorlesen und Ausmalen",
+    "cover": "covers/B0HMYF4WJH.webp",
+    "url": "https://www.amazon.de/dp/B0HMYF4WJH",
+    "status": "KDP screenshot LIVE 2026-10-14; original user-uploaded cover"
+  },
+  {
+    "language": "EN",
+    "group": "Weihnachtswichtel",
+    "asin": "B0HNTQC6V9",
+    "title": "The Merry Adventures of the Christmas Elf: 24 New Christmas Stories to Read Aloud and Color",
+    "cover": "covers/B0HNTQC6V9.webp",
+    "url": "https://www.amazon.com/dp/B0HNTQC6V9",
+    "status": "KDP screenshot LIVE 2026-10-14; original user-uploaded cover"
+  },
+  {
+    "language": "EN",
+    "group": "Baustellenfahrzeuge",
+    "asin": "B0HN235D9P",
+    "title": "Construction Vehicles: 35 Mighty Machines to Color, Learn & Discover with Fun Facts and Search-and-Find Activities",
+    "cover": "covers/B0HN235D9P.webp",
+    "url": "https://www.amazon.com/dp/B0HN235D9P",
+    "status": "KDP screenshot LIVE 2026-10-14; original user-uploaded cover"
+  }
+];
