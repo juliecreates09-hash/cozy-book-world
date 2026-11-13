@@ -175,6 +175,8 @@ body{background:#f5e4c2}
 
 /* EN-only approved independent image assets. DE original remains unchanged. */
 html[lang="en"] .hero::before{aspect-ratio:2172/345!important;background-image:url("assets/hero-en-v27.webp")!important}
+@media(max-width:680px){html[lang="en"] .hero::before{aspect-ratio:16/7!important;background-size:cover!important;background-position:center center!important}}
+
 html[lang="en"] .coming-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:16px!important}
 .en-coming-card{min-width:0;overflow:hidden;border-radius:14px}
 .en-coming-card img{width:100%;height:auto;display:block}
