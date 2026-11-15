@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Krümel – Integrationstest V17</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;height:100%;font-family:system-ui,sans-serif}#site{position:fixed;inset:0;width:100%;height:100%;border:0;background:#fff8ed}
+#tools{position:fixed;z-index:1000;top:8px;left:50%;transform:translateX(-50%);max-width:calc(100vw - 16px);display:flex;align-items:center;flex-wrap:wrap;justify-content:center;gap:5px;padding:7px;border:1px solid #e8d7bb;border-radius:13px;background:#fffaf2f5;box-shadow:0 3px 14px #0003;font-size:12px}
+#tools button,#tools select{font:inherit;padding:6px 8px;border-radius:8px;border:1px solid #c9a986;background:white;color:#503c2c;cursor:pointer}#tools button:focus-visible,#tools select:focus-visible{outline:3px solid #127ca5}
+#tools .hide{background:#8c3544;color:white}
+#elf{position:fixed;z-index:900;bottom:14px;right:12px;max-width:min(37vw,260px);max-height:min(48vh,330px);object-fit:contain;opacity:0;pointer-events:none;filter:drop-shadow(0 5px 7px #34221633)}
+#elf.active{animation:arrive 4s ease-in-out forwards}@keyframes arrive{0%{opacity:0;transform:translateY(15px) scale(.95)}15%,80%{opacity:1;transform:none}100%{opacity:0;transform:translateY(7px)}}
+#elf.left{right:auto;left:12px}#elf.top{bottom:auto;top:78px}
+#status{position:fixed;z-index:901;bottom:8px;left:50%;transform:translateX(-50%);background:#fffaf2ee;color:#523a2d;border-radius:20px;padding:5px 12px;font-size:11px;pointer-events:none;max-width:80vw;text-align:center}
+@media(max-width:600px){#elf{max-width:48vw;max-height:37vh;bottom:42px}#elf.top{top:115px;bottom:auto}#tools{top:5px;width:calc(100vw - 10px)}}
+@media(prefers-reduced-motion:reduce){#elf.active{animation:arrive 1.8s ease-in-out forwards}}
+</style></head><body>
+<iframe id="site" title="Cozy Book World – unveränderte Originalseite" src="../index.html?lang=DE"></iframe>
+<div id="tools" role="group" aria-label="Krümel Integrationstest">
+<strong>Krümel V17 · Vorschau</strong>
+<select id="lang" aria-label="Sprache"><option>DE</option><option>EN</option><option>ES</option></select>
+<select id="position" aria-label="Position"><option value="right">Unten rechts</option><option value="left">Unten links</option><option value="top">Oben rechts</option></select>
+<button id="next">Animation testen</button><button id="reset">Timer neu</button><button id="toggle" class="hide">Aus</button>
+</div>
+<img id="elf" alt="Krümel, der Weihnachtswichtel"><div id="status" role="status">Erster Auftritt nach 3 Sekunden aktiver Zeit</div>
+<script>
+(()=>{'use strict';
+const variants=[['Hallo','assets/hallo.gif'],['Mehl','assets/mehl.gif'],['Schnee','assets/schnee_transparent_apng.png'],['Stern','assets/stern.gif'],['Naschen','assets/naschen.gif']];
+const img=document.querySelector('#elf'),status=document.querySelector('#status'),frame=document.querySelector('#site');
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+let shown=0,last=-1,elapsed=0,disabled=false,playing=false,prev=performance.now(),timer=null;
+const say=t=>status.textContent=t;
+function show(i,auto){if(disabled||document.hidden||playing||auto&&shown>=4)return false;playing=true;last=i;if(auto)shown++;say(variants[i][0]+(auto?' · automatisch '+shown+'/4':' · manuell'));img.classList.remove('active');img.removeAttribute('src');void img.offsetWidth;img.src=variants[i][1]+'?v='+Date.now();img.classList.add('active');clearTimeout(timer);timer=setTimeout(()=>{img.classList.remove('active');img.removeAttribute('src');playing=false;},reduced?1800:4100);return true}
+function pick(){const a=variants.map((_,i)=>i).filter(i=>i!==last);return a[Math.floor(Math.random()*a.length)]}
+function tick(now){const dt=Math.max(0,Math.min(1000,now-prev));prev=now;if(!document.hidden&&!disabled&&!reduced&&!playing&&shown<4){elapsed+=dt;const wait=shown===0?3000:shown===1?35000:60000;if(elapsed>=wait){elapsed=0;show(pick(),true)}}requestAnimationFrame(tick)}
+requestAnimationFrame(tick);
+document.querySelector('#next').onclick=()=>{if(playing){say('Bitte aktuellen Auftritt abwarten');return}show(pick(),false)};
+document.querySelector('#reset').onclick=()=>{shown=0;last=-1;elapsed=0;say('Timer zurückgesetzt · 3 Sekunden')};
+document.querySelector('#toggle').onclick=e=>{disabled=!disabled;e.target.textContent=disabled?'Ein':'Aus';if(disabled){clearTimeout(timer);playing=false;img.classList.remove('active');img.removeAttribute('src')}say(disabled?'Animationen ausgeschaltet':'Animationen eingeschaltet')};
+document.querySelector('#position').onchange=e=>{img.classList.toggle('left',e.target.value==='left');img.classList.toggle('top',e.target.value==='top');say('Position: '+e.target.selectedOptions[0].textContent)};
+document.querySelector('#lang').onchange=e=>{frame.src='../index.html?lang='+encodeURIComponent(e.target.value);say('Sprache '+e.target.value+' · Originalseite wird geladen')};
+document.addEventListener('visibilitychange',()=>{prev=performance.now()});
+if(reduced)say('Reduzierte Bewegung aktiv · nur manuelle Vorschau');
+})();
+</script></body></html>
